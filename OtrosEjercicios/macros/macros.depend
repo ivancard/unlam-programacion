@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1661187009 source:c:\users\ivanc\desktop\c\macros\macros\main.c
+	<stdio.h>
+	<stdlib.h>
+
