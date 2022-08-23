@@ -164,3 +164,75 @@ int isPrime(int number) {
     }
     return 1;
 }
+
+typedef struct {
+    int day;
+    int month;
+    int year;
+} Fecha;
+
+
+int esBisiesto(int year) {
+    if(year % 4 == 0) {
+        if(year % 100 == 0) {
+            if(year % 400 == 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return 1;
+        }
+    } else {
+        return 0;
+    }
+}
+
+int validarFecha(Fecha fecha) {
+    int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if( fecha.day<=0 || fecha.day>31 || fecha.month<=0 || fecha.month>12 || fecha.year <= 0) {
+        return 0;
+    }
+
+    if(fecha.day > monthDays[fecha.month - 1]) {
+        if (fecha.month==2 && fecha.day == 29) {
+            if (esBisiesto(fecha.month)) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+Fecha nextDay(Fecha fecha){
+    int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    Fecha nextDate = {0,0,0};
+
+    if(fecha.day > monthDays[fecha.month - 1]){
+        if (fecha.day == monthDays[fecha.month - 1]){
+            if (fecha.month == 12) {
+                nextDate.day = 01;
+                nextDate.month = 01;
+                nextDate.year =++fecha.year;
+                return nextDate;
+            } else {
+                nextDate.day = 01;
+                nextDate.month = ++fecha.month;
+                nextDate.year = fecha.year;
+                return nextDate;
+            }
+        }
+        nextDate.day = fecha.day + 1;
+        nextDate.month = fecha.month;
+        nextDate.year = fecha.year;
+        return nextDate;
+    }
+    return nextDate;
+}
+

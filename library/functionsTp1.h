@@ -1,6 +1,12 @@
 #ifndef FUNCTIONSTP1_H_INCLUDED
 #define FUNCTIONSTP1_H_INCLUDED
 
+typedef struct {
+    int day;
+    int month;
+    int year;
+} Fecha;
+
 double factorial(int);
 int combinatoria(int, int);
 float eALaX(int, double);
@@ -14,5 +20,7 @@ int additionFirstXNumbers(int);
 int additionFirstEvenNumbers(int);
 int additionFirstEvenNumbersLessX(int);
 int isPrime(int);
+int validarFecha(Fecha);
+Fecha nextDay(Fecha);
 
 #endif // FUNCTIONSTP1_H_INCLUDED

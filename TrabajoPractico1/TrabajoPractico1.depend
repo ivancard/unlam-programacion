@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1660781135 source:c:\users\ivanc\desktop\c\trabajopractico1\main.c
+1661219180 source:c:\users\ivanc\desktop\c\trabajopractico1\main.c
 	<stdio.h>
 	<stdlib.h>
+	<time.h>
 	"../library/functionsTp1.h"
 
-1660781076 c:\users\ivanc\desktop\c\library\functionstp1.h
+1661219127 c:\users\ivanc\desktop\c\library\functionstp1.h
 
-1660781151 source:c:\users\ivanc\desktop\c\library\functionstp1.c
+1661219088 source:c:\users\ivanc\desktop\c\library\functionstp1.c
 	<stdlib.h>
 	<math.h>
 
