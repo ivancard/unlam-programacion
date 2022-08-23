@@ -22,5 +22,6 @@ int additionFirstEvenNumbersLessX(int);
 int isPrime(int);
 int validarFecha(Fecha);
 Fecha nextDay(Fecha);
+Fecha sumarDias(Fecha, int);
 
 #endif // FUNCTIONSTP1_H_INCLUDED

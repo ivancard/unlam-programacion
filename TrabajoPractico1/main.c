@@ -9,8 +9,8 @@ void delay(int);
 int main() {
     system("color 06");
 
-    Fecha date = {31,04,1999};
-    Fecha proximoDia= nextDay(date);
+    Fecha date = {29,4,1999};
+    Fecha proximoDia= sumarDias(date, 5);
     printf("%d-%d-%d", proximoDia.day, proximoDia.month, proximoDia.year);
 
 //    int desicion;

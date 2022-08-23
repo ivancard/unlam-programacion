@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 
 double factorial(int number) {
@@ -214,7 +215,7 @@ Fecha nextDay(Fecha fecha){
     int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     Fecha nextDate = {0,0,0};
 
-    if(fecha.day > monthDays[fecha.month - 1]){
+    if(validarFecha(fecha)){
         if (fecha.day == monthDays[fecha.month - 1]){
             if (fecha.month == 12) {
                 nextDate.day = 01;
@@ -236,3 +237,27 @@ Fecha nextDay(Fecha fecha){
     return nextDate;
 }
 
+Fecha sumarDias(Fecha fecha, int daysToAdd){
+    int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if (esBisiesto(fecha.year) && fecha.month == 2){
+        monthDays[1] = 29;
+    }
+    if (fecha.day+daysToAdd > monthDays[fecha.month-1]){
+        daysToAdd -= monthDays[fecha.month-1] - fecha.day;
+
+        do {
+            fecha.month++;
+            daysToAdd -= monthDays[fecha.month-1];
+            if (fecha.month > 12){
+                fecha.month = 1;
+                fecha.year++;
+            }
+        } while (daysToAdd > 0);
+
+        fecha.day = monthDays[fecha.month-1] - abs(daysToAdd);
+    }
+    else
+        fecha.day += daysToAdd;
+    return fecha;
+}
